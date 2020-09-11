@@ -1,0 +1,65 @@
+{
+    "categories_ref_id": "2",
+    "imageFolder" : "jewellery",
+    "products": [
+        {
+            "name": "FURLA 1927",
+            "price": "$398.00",
+            "image": "1.jpg"
+        },
+        {
+            "name": "FURLA 1927",
+            "price": "$398.00",
+            "image": "2.jpg"
+        },
+        {
+            "name": "FURLA 1927",
+            "price": "$398.00",
+            "image": "3.jpg"
+        },
+        {
+            "name": "FURLA 1927",
+            "price": "$398.00",
+            "image": "4.jpg"
+        },
+        {
+            "name": "FURLA 1927",
+            "price": "$398.00",
+            "image": "5.jpg"
+        },
+        {
+            "name": "FURLA 1927",
+            "price": "$398.00",
+            "image": "6.jpg"
+        },
+        {
+            "name": "FURLA 1927",
+            "price": "$398.00",
+            "image": "7.jpg"
+        },
+        {
+            "name": "FURLA 1927",
+            "price": "$398.00",
+            "image": "8.jpg"
+        },
+        {
+            "name": "FURLA 1927",
+            "price": "$398.00",
+            "image": "9.jpg"
+        },
+        {
+            "name": "FURLA 1927",
+            "price": "$398.00",
+            "image": "10.jpg"
+        },
+        {
+            "name": "FURLA 1927",
+            "price": "$398.00",
+            "image": "11.jpg"
+        },        {
+            "name": "FURLA 1927",
+            "price": "$398.00",
+            "image": "12.jpg"
+        }
+    ]
+}

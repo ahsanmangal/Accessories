@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <title>Accessories</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="slideshow">
+            <div class="slideshow-item">
+                <img src="images/tamara-bellis-AreMq4SKhPA-unsplash.jpg">
+                <div class="slideshow-item-text">
+                    <h1>Style is a way to say who you are without having to speak.
+                        The object of the passion is just an accessory to the passion itself.
+                    </h1>
+                </div>
+            </div>
+            <div class="slideshow-item">
+                <img src="images/freestocks-ziiUkV9LpdU-unsplash-min.jpg">
+                <div class="slideshow-item-text">
+                    <h1> Beneath the makeup and behind the smile I am just a girl who wishes for the world.
+                        Be happy. It drives people crazy.
+                    </h1>
+                </div>
+            </div>
+            <div class="slideshow-item">
+                <img src="images/jamie-street-aMuq-Xz7R_M-unsplash -min.jpg">
+                <div class="slideshow-item-text">
+                    <h1>How many cares one loses when one decides not to be something but to be someone.
+                        A smile is the best makeup any girl can wear.Caring about beauty, it is necessary
+                        to start with the heart and soul, otherwise no makeup will not help.
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h4>Accessories</h4>
+            <p class="index-caption">
+                Our products are inspired by the people and world around us. Beautiful, high quality goods that
+                are designed especially for you. Discover our story and meet the people that make our brand what it is.
+            </p>
+        </div>
+        <div class="categories">
+            <div class="row" id="categories"></div>
+        </div>
+    </div>
+</body>
+<script>
+    //Getting Categories from JSON
+    fetch('./js/JSON/categories.json').then((res) => { return res.json(); }).then((obj) => {
+        var catBoxHTML = '';
+        for (var i = 0; i < obj.categories.length; i++) {
+            console.log(obj.categories[i]);
+            catBoxHTML += `
+            <div class="col-md-6">
+                <div class="box">
+                    <div class="imgBox">
+                        <img src="./images/${obj.categories[i].image}" alt="HandBags">
+                    </div>
+                    <div>
+                        <p><a href="./products.html?e=${obj.categories[i].param_as_file_name}">${obj.categories[i].name}</a></p>
+                    </div>
+                </div>    
+            </div>
+    `;
+        }
+        document.getElementById('categories').innerHTML = catBoxHTML;
+        //console.log(catBoxHTML);
+    }).catch((error) => { alert(error); })
+
+
+</script>
+
+</html>

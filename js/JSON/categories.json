@@ -1,0 +1,16 @@
+{
+    "categories" : [
+        {
+            "id" : 1,
+            "name" : "Hand Bags",
+            "image" : "handbags.jpg",
+            "param_as_file_name" : "handbagsJSON"
+        },
+        {
+            "id" : 2,
+            "name" : "Jewellery",
+            "image" : "jewellery.jpeg",
+            "param_as_file_name" : "jewelleryJSON"
+        }
+    ]
+}

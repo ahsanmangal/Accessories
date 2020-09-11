@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 , user-scalable=no" />
+    <title>Handbags</title>
+    <link rel="stylesheet" href="./css/products.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <h2 id="category_name"></h2>
+        <div class="row" id="products"></div>
+        <!--End Row-->
+
+    </div>
+    <!--End Container-->
+</body>
+<script>
+    /*Getting JSON File name from URL*/
+    var params = new URLSearchParams(window.location.search);
+    var jsonFileName = params.get('e');
+    //Getting Product from JSON (fetch is JS default API)
+    fetch(`./js/JSON/${jsonFileName}.json`).then((res) => { return res.json(); }).then((obj) => {
+        //console.log(obj.products);
+        /*Get Category Name by function*/
+        getCategoryName(obj.categories_ref_id);
+        var catBoxHTML = '';
+        for (var i = 0; i < obj.products.length; i++) {
+            //console.log(obj.products[i]);
+            catBoxHTML += `
+            <div class="col-md-3">
+                <div class="product-top">
+                    <img src="./images/${obj.imageFolder}/${obj.products[i].image}" width="100" height="200">
+                    <div class="overlay">
+                        <button type="button" class="btn btn-secondary" title="Quick shop"><i class="fa fa-eye"></i>
+                        </button>
+                        <button type="button" class="btn btn-secondary" title="Add to WhishList"><i
+                                class="fa fa-heart-o"></i>
+                        </button>
+                        <button type="button" class="btn btn-secondary" title="Add to Cart"><i
+                                class="fa fa-shopping-cart"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="product-bottom text-center">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-o"></i>
+                    <i class="fa fa-star-o"></i>
+                    <h3>${obj.products[i].name}</h3>
+                    <h5>${obj.products[i].price}</h5>
+                </div>
+            </div>
+    `;
+        }
+        document.getElementById('products').innerHTML = catBoxHTML;
+        //console.log(catBoxHTML);
+    }).catch((error) => { alert(error); })
+
+
+    /*Getting Category Name by ID*/
+    getCategoryName = (catId) => {
+        fetch(`./js/JSON/categories.json`).then((res) => { return res.json(); }).then((obj) => {
+            //console.log(obj);
+            /*Find specific object from JSON by given ID*/
+            var specificObj = obj.categories.find((e) => e.id === parseInt(catId));
+            /*Get and assign Category Name with innerHTML*/
+            document.getElementById('category_name').innerText = specificObj.name;
+        }).catch((error) => { alert(error); })
+    }
+
+
+</script>
+
+</html>
